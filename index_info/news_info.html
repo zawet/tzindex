@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<title>泰州中学</title>
+<link rel="stylesheet" href="../css/animate.css">
+<link rel="stylesheet" href="../css/ui-box.css">
+<link rel="stylesheet" href="../css/basic.css">
+<link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<div class="box">
+    <div class="top "><div class="top_title2 t_c wot"><a class="top_back" href="../news.html"></a>系统消息</div></div>
+    <div class="main">
+    	<div class="newsinfo_icon"><img src="../images/app/应用_05.png"></div>
+        <div class="ub ub-ac newsinfo_li">
+        <div class="li_type">消息类型：</div>
+        <div class="li_cont">系统消息</div>
+        </div>
+        <div class="ub ub-ac newsinfo_li">
+        <div class="li_type">消息来源：</div>
+        <div class="li_cont">系统管理</div>
+        </div>
+        <div class="ub ub-ac newsinfo_li">
+        <div class="li_type">发送时间：</div>
+        <div class="li_cont">2016-10-10 08:30</div>
+        </div>
+        <div class="newsinfo_li ">
+        <div class="li_type">消息内容：</div>
+        <div class="li_conts">欢迎使用全课云平台！</div>
+        </div>
+        <a class="newsinfo_but">删除</a>
+    </div>
+</div>
+
+<!--弹层-->
+<div class="popup_box trn">
+<div class="pop_mask"></div>
+<div class="pop_main">
+<div class="pop_tit">提示:</div>
+<div class="pop_txt">消息删除后将无法找回，确定删除该消息？</div>
+<div class="pop_buts"><a class="one" href="#">确定</a><a class="back">取消</a></div>
+</div>
+</div>
+
+</body>
+<script  src="../js/jquery-1.10.2.min.js"></script>
+<script src="../js/all.js"></script>
+<script>
+$(function(){
+	inheight(".box");
+	windows_size(".top",".bottom",".main",10,0);
+	bt_upphoto();
+});
+
+function bt_upphoto(){
+	
+	//console.log(top);
+	
+	$(".newsinfo_but").click(function(){
+		$(".popup_box").addClass("open");
+		var top=$(window).height()-$(".pop_main").outerHeight();
+		if(top>0){
+		var top2=Math.floor(top/2);
+		$(".pop_main").css("top",top2+"px");
+		}else{
+		$(".pop_main").css("top","0px");
+		}
+	});
+	$(".back").click(function(){
+		$(".popup_box").removeClass("open");
+	});
+}
+
+</script>
+</html>
